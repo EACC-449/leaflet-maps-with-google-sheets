@@ -43,7 +43,7 @@
       url: 'https://search.mapzen.com/v1',
       placeholder: 'Search',
       title: 'Search',
-      bounds: false,
+      bounds: true,
       focus: true,
       layers: null,
       panToPoint: true,
