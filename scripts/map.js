@@ -70,7 +70,7 @@ $(window).on('load', function() {
     var layerNamesFromSpreadsheet = [];
     var layers = {};
     for (var i in points) {
-      var pointLayerNameFromSpreadsheet = points[i].Group1;
+      var pointLayerNameFromSpreadsheet = points[i].Group;
       if (layerNamesFromSpreadsheet.indexOf(pointLayerNameFromSpreadsheet) === -1) {
         markerColors.push(
           points[i]['Marker Icon'].indexOf('.') > 0
@@ -131,7 +131,7 @@ $(window).on('load', function() {
           point['Description']);
 
         if (layers !== undefined && layers.length !== 1) {
-          marker.addTo(layers[point.Group1]);
+          marker.addTo(layers[point.Group]);
         }
 
         markerArray.push(marker);
@@ -213,7 +213,7 @@ $(window).on('load', function() {
       function updateTable() {
         var pointsVisible = [];
         for (i in points) {
-          if (map.hasLayer(layers[points[i].Group1]) &&
+          if (map.hasLayer(layers[points[i].Group]) &&
               map.getBounds().contains(L.latLng(points[i].Latitude, points[i].Longitude))) {
             pointsVisible.push(points[i]);
           }
