@@ -259,9 +259,11 @@ $(window).on('load', function() {
       });
     }
     
-    table.button( 0 ).action( function( e, dt, button, config ) {
-      console.log( 'Button '+this.text()+' activated' );
-      this.disable();
+    table.button().add( 0, {
+       action: function ( e, dt, button, config ) {
+       dt.ajax.reload();
+    },
+       text: 'Reload table'
     } );
     
     completePoints = true;
