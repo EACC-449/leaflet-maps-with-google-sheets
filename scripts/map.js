@@ -273,10 +273,7 @@ $(window).on('load', function() {
     }
     
     table.button().add( 0, {
-      action: function ( e, dt, button, config ) {
-      dt.ajax.reload();
-    },
-      text: 'Reload'
+      text: 'Generate Search Report'
     } );
     
     completePoints = true;
