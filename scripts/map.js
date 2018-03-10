@@ -261,7 +261,7 @@ $(window).on('load', function() {
         buttons: [
         {
             extend: 'pdf',
-            text: 'Save current page',
+            text: 'Generate Search Report',
             exportOptions: {
                 modifier: {
                     page: 'current'
@@ -271,10 +271,6 @@ $(window).on('load', function() {
         ]
       });
     }
-    
-    table.button().add( 0, {
-      text: 'Generate Search Report'
-    } );
     
     completePoints = true;
     return group;
