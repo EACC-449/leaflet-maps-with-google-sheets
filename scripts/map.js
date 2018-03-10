@@ -259,7 +259,15 @@ $(window).on('load', function() {
         searching: true,
         columns: generateColumnsArray(),
         buttons: [
-          'copy', 'excel', 'pdf'
+        {
+            extend: 'pdf',
+            text: 'Save current page',
+            exportOptions: {
+                modifier: {
+                    page: 'current'
+                }
+            }
+          }
         ]
       });
     }
@@ -268,7 +276,7 @@ $(window).on('load', function() {
       action: function ( e, dt, button, config ) {
       dt.ajax.reload();
     },
-      text: 'Reload table'
+      text: 'Reload'
     } );
     
     completePoints = true;
