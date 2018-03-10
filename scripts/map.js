@@ -70,7 +70,7 @@ $(window).on('load', function() {
     var layerNamesFromSpreadsheet = [];
     var layers = {};
     for (var i in points) {
-      var pointLayerNameFromSpreadsheet = points[i+1].Group;
+      var pointLayerNameFromSpreadsheet = points[i].Group;
       if (layerNamesFromSpreadsheet.indexOf(pointLayerNameFromSpreadsheet) === -1) {
         markerColors.push(
           points[i]['Marker Icon'].indexOf('.') > 0
@@ -254,7 +254,7 @@ $(window).on('load', function() {
         scrollCollapse: true,
         scrollY: 'calc(' + tableHeight + 'vh - 40px)',
         info: false,
-        searching: false,
+        searching: true,
         columns: generateColumnsArray(),
       });
     }
