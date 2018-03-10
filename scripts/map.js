@@ -251,14 +251,25 @@ $(window).on('load', function() {
 
       // Initialize DataTable
       var table = $('#maptable').DataTable({
+        dom: 'Bfrtip',
         paging: false,
         scrollCollapse: true,
         scrollY: 'calc(' + tableHeight + 'vh - 40px)',
         info: false,
         searching: true,
         columns: generateColumnsArray(),
+        buttons: [
+          'copy', 'excel', 'pdf'
+        ]
       });
     }
+    
+    table.button().add( 0, {
+      action: function ( e, dt, button, config ) {
+      dt.ajax.reload();
+    },
+      text: 'Reload table'
+    } );
     
     completePoints = true;
     return group;
