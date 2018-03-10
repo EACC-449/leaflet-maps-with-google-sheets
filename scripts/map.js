@@ -259,7 +259,7 @@ $(window).on('load', function() {
         columns: generateColumnsArray(),
         buttons: [
           'copy', 'excel', 'pdf'
-        ]
+        ],
       });
     }
     
