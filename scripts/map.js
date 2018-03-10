@@ -259,7 +259,7 @@ $(window).on('load', function() {
         columns: generateColumnsArray(),
       });
     }
-
+    mapTable.enable();
     completePoints = true;
     return group;
   }
