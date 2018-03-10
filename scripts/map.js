@@ -250,6 +250,7 @@ $(window).on('load', function() {
 
       // Initialize DataTable
       var table = $('#maptable').DataTable({
+        autoFill: true;
         paging: false,
         scrollCollapse: true,
         scrollY: 'calc(' + tableHeight + 'vh - 40px)',
@@ -258,7 +259,7 @@ $(window).on('load', function() {
         columns: generateColumnsArray(),
       });
     }
-    
+    table.enable();
     completePoints = true;
     return group;
   }
