@@ -250,6 +250,7 @@ $(window).on('load', function() {
 
       // Initialize DataTable
       var table = $('#maptable').DataTable({
+        autoFill: true,
         paging: false,
         scrollCollapse: true,
         scrollY: 'calc(' + tableHeight + 'vh - 40px)',
@@ -865,7 +866,7 @@ $(window).on('load', function() {
     /* And this is a standard popup for bigger screens */
     L.popup({className: 'intro-popup'})
       .setLatLng(coordinates) // this needs to change
-      .setContent(<div id="box" style="color:blue;">info</div>)
+      .setContent(info)
       .openOn(map);
   }
 
