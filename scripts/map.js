@@ -257,9 +257,6 @@ $(window).on('load', function() {
         info: false,
         searching: true,
         columns: generateColumnsArray(),
-        buttons: [
-          'copy', 'excel', 'pdf'
-        ],
       });
     }
     
