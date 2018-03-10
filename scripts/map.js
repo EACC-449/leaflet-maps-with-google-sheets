@@ -865,7 +865,7 @@ $(window).on('load', function() {
     /* And this is a standard popup for bigger screens */
     L.popup({className: 'intro-popup'})
       .setLatLng(coordinates) // this needs to change
-      .setContent(info)
+      .setContent(<div id="box" style="color:blue;">info</div>)
       .openOn(map);
   }
 
