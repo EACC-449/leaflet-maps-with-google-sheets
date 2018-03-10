@@ -260,16 +260,6 @@ $(window).on('load', function() {
       });
     }
     
-    table.button().add( 0, {
-       action: function ( e, dt, button, config ) {
-       dt.ajax.reload();
-    },
-       text: 'Reload table'
-    } );
-    
-    table.buttons().container()
-    .appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
-    
     completePoints = true;
     return group;
   }
