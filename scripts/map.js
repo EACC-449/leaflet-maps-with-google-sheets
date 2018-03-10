@@ -124,6 +124,7 @@ $(window).on('load', function() {
           point['Icon Color']
         );
 
+      // popup stuff if we wanna make things fancier!!
       if (point.Latitude !== '' && point.Longitude !== '') {
         var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
           .bindPopup("<b>" + point['Name'] + '</b><br>' +
@@ -256,6 +257,9 @@ $(window).on('load', function() {
         info: false,
         searching: true,
         columns: generateColumnsArray(),
+        buttons: [
+          'copy', 'excel', 'pdf'
+        ]
       });
     }
     
@@ -265,6 +269,9 @@ $(window).on('load', function() {
     },
        text: 'Reload table'
     } );
+    
+    table.buttons().container()
+    .appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
     
     completePoints = true;
     return group;
