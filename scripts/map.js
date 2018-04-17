@@ -136,7 +136,7 @@ $(window).on('load', function() {
           marker.addTo(layers[point[name]]);
           marker.addTo(layers2[point[name2]]);
           marker.addTo(layers3[point[name3]]);
-          marker.addTo(layers3[point[name4]]);
+          marker.addTo(layers4[point[name4]]);
         }
 
         markerArray.push(marker);
@@ -285,7 +285,7 @@ $(window).on('load', function() {
       function updateTable() {
         var pointsVisible = [];
         for (i in points) {
-          if (map.hasLayer(layers[points[i].Group]) && map.hasLayer(layers2[points[i].Business] && map.hasLayer(layers3[points[i].County]) && map.hasLayer(layers3[points[i].EACC]) &&
+          if (map.hasLayer(layers[points[i].Group]) && map.hasLayer(layers2[points[i].Business]) && map.hasLayer(layers4[points[i].County]) && map.hasLayer(layers3[points[i].EACC]) &&
               map.getBounds().contains(L.latLng(points[i].Latitude, points[i].Longitude))) {
             pointsVisible.push(points[i]);
           }
