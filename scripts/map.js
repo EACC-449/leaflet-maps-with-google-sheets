@@ -285,7 +285,7 @@ $(window).on('load', function() {
       function updateTable() {
         var pointsVisible = [];
         for (i in points) {
-          if (map.hasLayer(layers[points[i].Group]) && map.hasLayer(layers2[points[i].Business]) && map.hasLayer(layers4[points[i].County]) && map.hasLayer(layers3[points[i].EACC]) &&
+          if (map.hasLayer(layers[points[i].Group]) && map.hasLayer(layers2[points[i].Business]) && map.hasLayer(layers3[points[i].EACC]) && map.hasLayer(layers4[points[i].County]) &&
               map.getBounds().contains(L.latLng(points[i].Latitude, points[i].Longitude))) {
             pointsVisible.push(points[i]);
           }
