@@ -98,7 +98,7 @@ $(window).on('load', function() {
   /**
    * Assigns points to appropriate layers and clusters them if needed
    */
-  function mapPoints(points, layers, layers2, layers3, name, name2, name3) {
+  function mapPoints(points, layers, layers2, layers3, layers4, name, name2, name3, name4) {
     var markerArray = [];
     // check that map has loaded before adding points to it?
     for (var i in points) {
@@ -136,6 +136,7 @@ $(window).on('load', function() {
           marker.addTo(layers[point[name]]);
           marker.addTo(layers2[point[name2]]);
           marker.addTo(layers3[point[name3]]);
+          marker.addTo(layers3[point[name4]]);
         }
 
         markerArray.push(marker);
@@ -194,6 +195,15 @@ $(window).on('load', function() {
         position: pos3,
       });
 
+        var pos4 = (getSetting('_pointsLegendPos4') == 'off')
+        ? 'topleft'
+        : getSetting('_pointsLegendPos');
+
+      var pointsLegend4 = L.control.layers(null, layers4, {
+        collapsed: false,
+        position: pos4,
+      });
+      
       if (getSetting('_pointsLegendPos') !== 'off') {
         //console.log(pointsLegend)
         pointsLegend.addTo(map);
@@ -211,6 +221,12 @@ $(window).on('load', function() {
         pointsLegend3.addTo(map);
         pointsLegend3._container.id = 'points-legend3';
         pointsLegend3._container.className += ' ladder';
+      }
+      
+       if (getSetting('_pointsLegendPos4') !== 'off') {
+        pointsLegend4.addTo(map);
+        pointsLegend4._container.id = 'points-legend4';
+        pointsLegend4._container.className += ' ladder';
       }
     }
 
@@ -230,6 +246,12 @@ $(window).on('load', function() {
      $('#points-legend3').prepend('<h6 class="pointer">' + getSetting('_pointsLegendTitle3') + '</h6>');
     if (getSetting('_pointsLegendIcon') != '') {
       $('#points-legend3 h6').prepend('<span class="legend-icon"><i class="fa '
+        + getSetting('_pointsLegendIcon') + '"></i></span>');
+    }
+
+      $('#points-legend4').prepend('<h6 class="pointer">' + getSetting('_pointsLegendTitle4') + '</h6>');
+    if (getSetting('_pointsLegendIcon') != '') {
+      $('#points-legend4 h6').prepend('<span class="legend-icon"><i class="fa '
         + getSetting('_pointsLegendIcon') + '"></i></span>');
     }
 
@@ -263,7 +285,7 @@ $(window).on('load', function() {
       function updateTable() {
         var pointsVisible = [];
         for (i in points) {
-          if (map.hasLayer(layers[points[i].Group]) && map.hasLayer(layers2[points[i].Business]) && map.hasLayer(layers3[points[i].EACC]) &&
+          if (map.hasLayer(layers[points[i].Group]) && map.hasLayer(layers2[points[i].Business] && map.hasLayer(layers3[points[i].County]) && map.hasLayer(layers3[points[i].EACC]) &&
               map.getBounds().contains(L.latLng(points[i].Latitude, points[i].Longitude))) {
             pointsVisible.push(points[i]);
           }
@@ -679,12 +701,14 @@ $(window).on('load', function() {
     var layers1;
     var layers2;
     var layers3;
+    var layers4;
     var group = '';
     if (points && points.elements.length > 0) {
       layers1 = determineLayers(points.elements, "Group");
       layers2 = determineLayers(points.elements, "Business");
       layers3 = determineLayers(points.elements, "EACC");
-      group = mapPoints(points.elements, layers1, layers2, layers3, "Group", "Business", "EACC");
+      layers4 = determineLayers(points.elements, "County");
+      group = mapPoints(points.elements, layers1, layers2, layers3, layers4, "Group", "Business", "EACC" ,"County");
     } else {
       completePoints = true;
     }
